@@ -20,5 +20,45 @@ public class Main {
         System.out.println("a6 (double): " + a6);
         System.out.println("a7 (boolean): " + a7);
         System.out.println("a8 (char): " + a8);
+
+
+
+
+
+        int reqem = 10;
+        char herf = 'B';
+        double kesr = 12.123;
+
+        System.out.printf("Result is: %d, %s, %.2f\n", reqem, herf, kesr);
+
+        int  c = 3;
+        long  a = 5L;
+        double  b = 7.12;
+
+        System.out.printf("%d, %d %d\n", c, a, c+a);
+
+
+        double netice = (a++) + (--b) - (a + 1) + (a += 3) + (++c);
+        System.out.printf("Result is: %.3f\n", netice);
+
+        if(a>b)
+            System.out.printf("Faxri");
+        else if(a<b)
+            System.out.printf("Tural");
+        else
+            System.out.printf("Murad");
+
+        System.out.printf("\nSecond:\n");
+
+        System.out.printf(a > b ?"Fexri" : a < b ? "Tural" : "Murad");
+
+
+
+
+
+
+
+
+
     }
 }
