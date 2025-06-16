@@ -15,7 +15,5 @@ public class Seasons {
                                (ay == 1 || ay == 2 || ay == 12) ? "Qış" : "Yanlış ay");
 
         }
-
-
     }
 }
