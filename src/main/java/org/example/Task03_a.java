@@ -1,7 +1,7 @@
 package org.example;
 import java.util.Scanner;
 
-public class Task03 {
+public class Task03_a {
     public static void main(String[] args) {
 
         int score1, score2, score3;
