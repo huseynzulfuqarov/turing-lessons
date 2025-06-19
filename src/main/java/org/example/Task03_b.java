@@ -7,13 +7,14 @@ public class Task03_b {
 
         System.err.println("Product list: Select 1 to 5");
         System.out.println(
-                        "*********************************\n" +
-                        "      1: Chocolate Bar - $2.00\n" +
-                        "      2: Soda - $1.50\n" +
-                        "      3: Chips - $1.20\n" +
-                        "      4: Sandwich - $3.00\n" +
-                        "      5: Water - $1.00\n" +
-                        "*********************************");
+                """
+                        *********************************
+                              1: Chocolate Bar - $2.00
+                              2: Soda - $1.50
+                              3: Chips - $1.20
+                              4: Sandwich - $3.00
+                              5: Water - $1.00
+                        *********************************""");
 
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
