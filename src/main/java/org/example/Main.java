@@ -1,6 +1,8 @@
 package org.example;
 
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 public class Main {
     public static void main(String[] args) {
         byte a1 = 100;
@@ -51,16 +53,16 @@ public class Main {
         System.out.printf("\nSecond:\n");
 
         System.out.printf(a > b ?"Fexri" : a < b ? "Tural" : "Murad");
+        System.out.println();
+
+        System.out.println(Integer.MAX_VALUE);
 
 
+        float k = 10.0f;
+        float g= 15.0f;
+        double f= k/g;
 
-
-
-
-
-
-
-
+        System.out.println(f);
 
 
     }
