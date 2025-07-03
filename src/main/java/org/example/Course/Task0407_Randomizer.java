@@ -24,7 +24,7 @@ public class Task0407_Randomizer {
                     while (check) {
 
                         check = false;
-                        rdPlace = rd.nextInt(20) + 1;
+                        rdPlace = rd.nextInt(16) + 1;
 
                         for (int j = 0; j < i; j++) {
                             if (places[j] == rdPlace) {
