@@ -7,13 +7,13 @@ public class Task0407_Randomizer {
     public static void main(String[] args) {
 
         Random rd = new Random();
-        int[] places = new int[20];
+        int[] places = new int[16];
 
         String[] students = {
-                "AA", "BB", "CC", "DD", "EE",
-                "RR", "TT", "YY", "UU", "II",
-                "OO", "QQ", "SS", "FF", "GG",
-                "HH", "JJ", "KK", "LL", "VV"
+                "Aqil", "Huseyn", "Ayla", "Aysu", "Ebulfez",
+                "Emin", "Orxan", "Ramzi", "Saleh", "Sedulla",
+                "Tural", "Ulvi", "Yusif", "?", "?",
+                "?"
         };
 
         for (int i = 0; i < places.length; i++) {
@@ -37,7 +37,7 @@ public class Task0407_Randomizer {
         }
 
         for (int i = 0; i < places.length; i++) {
-            System.out.println(students[i] + " -> yeri: " + places[i]);
+            System.out.println(students[i] + " -> yer: " + places[i]);
         }
     }
 }
