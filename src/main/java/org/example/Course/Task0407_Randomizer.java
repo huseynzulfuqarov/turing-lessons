@@ -1,0 +1,43 @@
+package org.example.Course;
+
+import java.util.Random;
+
+public class Task0407_Randomizer {
+
+    public static void main(String[] args) {
+
+        Random rd = new Random();
+        int[] places = new int[20];
+
+        String[] students = {
+                "AA", "BB", "CC", "DD", "EE",
+                "RR", "TT", "YY", "UU", "II",
+                "OO", "QQ", "SS", "FF", "GG",
+                "HH", "JJ", "KK", "LL", "VV"
+        };
+
+        for (int i = 0; i < places.length; i++) {
+
+            int rdPlace = -1;  // vacibdir!!
+            boolean check = true;
+
+                    while (check) {
+
+                        check = false;
+                        rdPlace = rd.nextInt(20) + 1;
+
+                        for (int j = 0; j < i; j++) {
+                            if (places[j] == rdPlace) {
+                                check = true;
+                                break;
+                            }
+                        }
+                    }
+            places[i] = rdPlace;
+        }
+
+        for (int i = 0; i < places.length; i++) {
+            System.out.println(students[i] + " -> yeri: " + places[i]);
+        }
+    }
+}
