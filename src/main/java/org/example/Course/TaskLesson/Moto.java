@@ -18,7 +18,6 @@ public class Moto {
     }
 
     public String toString() {
-    return "Moto{model=%s, color=%s, price=%s, weight=%s, power=%s, year=%d}".formatted(this.model, this.color, this.price, this.weight, this.power, this.year);
+        return "Moto{model=%s, color=%s, price=%s, weight=%s, power=%s, year=%d}".formatted(this.model, this.color, this.price, this.weight, this.power, this.year);
     }
-
 }
