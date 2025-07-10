@@ -14,7 +14,7 @@ public class Products {
     }
 
     public String toString() {
-        return "Products{ name = %s, price = %s, category = %s, stock = %d}".formatted(this.productName, this.productPrice, this.productCategory, this.productStock);
+        return "Products{ name = %s, price = %2.2f, category = %s, stock = %d}".formatted(this.productName, this.productPrice, this.productCategory, this.productStock);
     }
 
     public double discountPrice(double percent) {
