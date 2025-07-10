@@ -3,14 +3,14 @@ package org.example.Course.TaskLesson2;
 public class ProductsManagementApp {
     public static void main(String[] args) {
 
-        Products product1 = new Products("AA", 1.2, "SS", 110);
-        Products product2 = new Products("BB", 2.3, "FF", 220);
-        Products product3 = new Products("CC", 69.1, "YY", 0);
-        Products product4 = new Products("DD", 51.9, "UU", 440);
+        Products product1 = new Products("Water", 1.5, "Drinks", 110);
+        Products product2 = new Products("Bread", 1.1, "Food", 220);
+        Products product3 = new Products("Headphones", 60.9, "Electronics", 0);
+        Products product4 = new Products("Keyboard", 91.2, "Electronics", 440);
 
-        Products products[] = {product1, product2, product3, product4};
+        Products[] products = {product1, product2, product3, product4};
 
-        Store store1 = new Store("StoreAA", "Baku", products);
+        Store store1 = new Store("MarketOne", "Baku", products);
 
         System.out.println("\nAll products in " + store1.storeName + ":");
         store1.printAllProducts();
