@@ -1,39 +1,41 @@
 package org.example.Course.TaskLesson2;
 
 public class Store {
-    String name;
-    String adderss;
-    Products[] products;
+    String storeName;
+    String storeAddress;
+    Products[] storeProducts;
 
-    public Store(String name, String adderss, Products[] products) {
-        this.name = name;
-        this.adderss = adderss;
-        this.products = products;
+    public Store(String storeName, String storeAddress, Products[] storeProducts) {
+        this.storeName = storeName;
+        this.storeAddress = storeAddress;
+        this.storeProducts = storeProducts;
     }
 
     public void printAllProducts() {
-        for (Products p : products) {
-            System.out.println(p.productName + " " + p.productPrice);
+        for (Products p : storeProducts) {
+            System.out.println(p.toString());
         }
     }
 
     public void printExpensiveProducts(double limit) {
         boolean check = true;
-        for (Products p : products) {
-            if (p.productPrice > limit) {
-                check = false;
-                System.out.println(p.productName + " " + p.productPrice);
+        for (Products p : storeProducts) {
+            if (p.isInStock()) {     // product3 will not be shown because it's out of stock.
+                if (p.productPrice > limit) {
+                    check = false;
+                    System.out.println(p.toString());
+                }
             }
         }
-        if (check) System.out.println("No product to your filter");
+        if (check) System.out.println("No products match your filter.");
     }
 
     public void applyDiscountToAll(double percent) {
-        for (Products p : products) {
-            p.productPrice = p.productPrice - p.productPrice * percent * 0.01;
-            System.out.println(p.productName + " " + p.productPrice);
+        for (Products p : storeProducts) {
+            p.productPrice = p.discountPrice(percent);
+            System.out.println(p.toString());
         }
     }
-
-
 }
+
+

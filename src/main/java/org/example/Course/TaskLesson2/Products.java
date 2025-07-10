@@ -10,14 +10,15 @@ public class Products {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productCategory = productCategory;
+        this.productStock = productStock;
     }
 
     public String toString() {
-        return "Products{name=%s, price=%s, category=%s, stock=%d}".formatted(this.productName, this.productPrice, this.productCategory, this.productStock);
+        return "Products{ name = %s, price = %s, category = %s, stock = %d}".formatted(this.productName, this.productPrice, this.productCategory, this.productStock);
     }
 
     public double discountPrice(double percent) {
-        return productPrice - percent * productPrice * 0.01;
+        return productPrice * (1 - percent * 0.01);
     }
 
     public boolean isInStock() {
