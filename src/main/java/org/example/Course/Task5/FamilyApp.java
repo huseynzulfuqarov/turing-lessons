@@ -6,11 +6,17 @@ public class FamilyApp {
         Dog dog1 = new Dog("Bruno", 4);
         Cat cat1 = new Cat("Misty", 5);
 
-        Dog dog2 = new Dog("Max", 1);
+        Dog dog2 = new Dog("Max", 2);
         Cat cat2 = new Cat("Coco", 3);
 
-        Man man1 = new Man("Jack", 33, dog1, cat1);
-        Woman woman1 = new Woman("Luna", 23, dog2, cat2);
+        Man man1 = new Man("Jack", 25);
+        Woman woman1 = new Woman("Luna", 23);
+
+        man1.setDog(dog1);
+        man1.setCat(cat1);
+
+        woman1.setDog(dog2);
+        woman1.setCat(cat2);
 
         System.out.println();
         man1.introduce();

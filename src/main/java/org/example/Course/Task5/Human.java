@@ -4,10 +4,8 @@ public class Human extends Animal {
     private Dog dog;
     private Cat cat;
 
-    public Human(String name, int age, Dog dog, Cat cat) {
+    public Human(String name, int age) {
         super(name, age);
-        this.dog = dog;
-        this.cat = cat;
     }
 
     public Dog getDog() {
@@ -32,8 +30,10 @@ public class Human extends Animal {
 
     public void introduce() {
         System.out.println("My name is " + getName() + " and I am " + getAge() + " years old.");
-        System.out.println("My dog name is " + dog.getName() + " and my dog age is " + dog.getAge() + ".");
-        System.out.println("My cat name is " + cat.getName() + " and my cat age is " + cat.getAge() + ".");
+        if (dog != null)
+            System.out.println("My dog-> " + dog.toString());
+        if (cat != null)
+            System.out.println("My cat-> " + cat.toString());
     }
 
 }

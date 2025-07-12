@@ -30,6 +30,6 @@ public class Animal {
     }
 
     public String toString() {
-        return "Name: " + name + ", age: " + age;
+        return "Name: " + name + ", Age: " + age;
     }
 }
