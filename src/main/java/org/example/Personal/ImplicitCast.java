@@ -1,4 +1,4 @@
-package org.example.Personal.Mixed;
+package org.example.Personal;
 
 import java.util.Arrays;
 
