@@ -1,8 +1,8 @@
-package org.example;
+package org.example.Personal.Mixed;
 import java.util.Arrays;
 import java.util.Scanner;
 public class TaskSexsi {
-    static  String str = "";
+    static String str = "";
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
@@ -83,7 +83,8 @@ public class TaskSexsi {
                 if (str.isEmpty()) {
                     System.out.println("cumle yaz");
                     return;
-                }                    String[] split = str.split(" ");
+                }
+                String[] split = str.split(" ");
                 System.out.println("sozlerin sayi: " + split.length);
 
             }

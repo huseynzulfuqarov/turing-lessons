@@ -1,12 +1,12 @@
-package org.example;
+package org.example.Personal.Mixed;
 
 import java.util.Scanner;
 
 public class ReTask {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Reqem daxil et:");
+       Scanner sc = new Scanner(System.in);
+       /*  System.out.print("Reqem daxil et:");
         int a = sc.nextInt();
         System.out.println("Daxil etiyinz reqem: " + a);
 
@@ -25,12 +25,27 @@ public class ReTask {
 
         System.out.println(str2 + "\n\n");
 
-
+*/
         System.out.println("Piramida:");
 
-        for(int i=1; i<=5; i++){
+        int ff = sc.nextInt();
+        System.out.println("Piramida:");
 
-            for(int k=1; k<=5-i; k++){
+
+        for(int i=1; i<=ff; i++){
+
+            for(int k=1; k<=ff-i; k++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=2*i - 1; j++){
+                System.out.print("*");
+            }
+            System.out.println("\n");
+        }
+
+        for(int i=ff; 1<=i; i++){
+
+            for(int k=ff; 1<=k-i; k++){
                 System.out.print(" ");
             }
             for(int j=1; j<=2*i - 1; j++){
@@ -41,7 +56,7 @@ public class ReTask {
 
         System.out.println("\n\n");
 
-        System.out.print("reqem daxil et:");
+       /* System.out.print("reqem daxil et:");
 
         int num = sc.nextInt();
         int start = 1;
@@ -103,10 +118,10 @@ public class ReTask {
         System.out.println("\n\n");
 
 
-    /*    do{
+    *//*    do{
 
         }
-        while(sert)*/
+        while(sert)*//*
 
 
         System.out.println("method topladi: "+ sum(4,5));
@@ -160,6 +175,6 @@ public class ReTask {
 
 
     public static int sum(int a, int b){
-        return a+b;
+        return a+b;*/
     }
 }

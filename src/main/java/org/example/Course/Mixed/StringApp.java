@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Course.Mixed;
 
 import java.util.Arrays;
 

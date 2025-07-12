@@ -1,4 +1,4 @@
-package org.example.Course.TaskLesson;
+package org.example.Course.TaskLesson1;
 
 public class Car {
     String model;

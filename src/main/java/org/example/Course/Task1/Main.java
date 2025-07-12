@@ -1,7 +1,4 @@
-package org.example;
-
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+package org.example.Course.Task1;
 
 public class Main {
     public static void main(String[] args) {
