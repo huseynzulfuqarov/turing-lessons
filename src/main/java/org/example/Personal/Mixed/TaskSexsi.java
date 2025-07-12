@@ -1,4 +1,4 @@
-package org.example.Personal;
+package org.example.Personal.Mixed;
 import java.util.Arrays;
 import java.util.Scanner;
 public class TaskSexsi {

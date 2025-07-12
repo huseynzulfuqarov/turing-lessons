@@ -1,4 +1,4 @@
-package org.example.Personal;
+package org.example.Personal.Mixed;
 
 public class StringBuffer1 {
     public static void main(String[] args) {
