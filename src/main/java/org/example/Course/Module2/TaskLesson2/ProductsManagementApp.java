@@ -1,4 +1,4 @@
-package org.example.Course.TaskLesson2;
+package org.example.Course.Module2.TaskLesson2;
 
 public class ProductsManagementApp {
     public static void main(String[] args) {

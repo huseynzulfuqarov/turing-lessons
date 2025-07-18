@@ -1,4 +1,4 @@
-package org.example.Course.Task3;
+package org.example.Course.Module1.Task3;
 import java.util.Scanner;
 
 public class Task03_a {

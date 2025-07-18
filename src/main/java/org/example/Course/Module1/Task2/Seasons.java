@@ -1,4 +1,4 @@
-package org.example.Course.Task2;
+package org.example.Course.Module1.Task2;
 
 public class Seasons {
     public static void main(String[] args) {

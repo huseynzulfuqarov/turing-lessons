@@ -1,4 +1,4 @@
-package org.example.Course.TaskLesson1;
+package org.example.Course.Module2.TaskLesson1;
 
 public class TransportApp {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package org.example.Course.Task5;
+package org.example.Course.Module2.Task5;
 
 public class FamilyApp {
     public static void main(String[] args) {

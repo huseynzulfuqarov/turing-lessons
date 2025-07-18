@@ -1,4 +1,4 @@
-package org.example.Course.Task4;
+package org.example.Course.Module1.Task4;
 
 import java.util.Arrays;
 
