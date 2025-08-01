@@ -1,6 +1,7 @@
 package org.example.Course.Module2.Task6;
 
 public class PublicTransportApp {
+
     public static void main(String[] args) {
 
         Vehicle v1 = new Taxi("BYD", "Destroyer", "10-TP-556", 4, "Bolt");
