@@ -1,4 +1,4 @@
-package org.example.Course.Module2;
+package org.example.Course.Module2.TaskLesson3;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -6,7 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TaskLesson3 {
+public class DataType {
 
         public static void main(String[] args) {
 
