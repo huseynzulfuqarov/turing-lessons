@@ -30,7 +30,6 @@ public class DataType {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-
             String formatted = turkiye.format(formatter);
             System.out.println("Türkiyə vaxtı: " + formatted);
             System.out.println(turkiye);
