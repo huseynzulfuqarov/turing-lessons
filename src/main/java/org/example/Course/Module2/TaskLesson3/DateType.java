@@ -6,13 +6,13 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class DataType {
+public class DateType {
 
     public static void main(String[] args) {
 
         LocalDate today = LocalDate.now();
 
-        LocalDate myBirthday = LocalDate.of(2005, 5, 6);
+        LocalDate myBirthday = LocalDate.of(1940, 5, 6);
 
         long days = today.toEpochDay() - myBirthday.toEpochDay();
 
