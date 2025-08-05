@@ -8,10 +8,10 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits =  new String[0];
+    private String[] habits = new String[0];
 
     public Pet(String nickname, String species) {
-        this.nickname =  nickname;
+        this.nickname = nickname;
         this.species = species;
     }
 
@@ -23,7 +23,8 @@ public class Pet {
         this.habits = habits;
     }
 
-    public Pet() {}
+    public Pet() {
+    }
 
     public String getSpecies() {
         return species;
@@ -65,15 +66,15 @@ public class Pet {
         this.habits = habits;
     }
 
-    public void eat(){
+    public void eat() {
         System.out.println("I am eating.");
     }
 
-    public void respond(){
+    public void respond() {
         System.out.printf("Hello, owner. I am - %s. I miss you!\n", nickname);
     }
 
-    public void foul(){
+    public void foul() {
         System.out.println("I need to cover it up.");
     }
 
