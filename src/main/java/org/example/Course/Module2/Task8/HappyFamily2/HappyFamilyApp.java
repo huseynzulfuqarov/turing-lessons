@@ -14,15 +14,17 @@ public class HappyFamilyApp {
         Pet misty = new Pet("Misty", "cat");
         Pet coco = new Pet("Coco", "parrot", 2, 60, new String[]{"talk", "fly"});
 
-        Human human1 = new Human();
-            human1.setName("Lara");
-            human1.setSurname("Green");
-            human1.setBirthYear(1959);
-            human1.setIq(90);
-            human1.setPet(pet1);
-            human1.setMother(null);
-            human1.setFather(null);
-            human1.setSchedule(new String[][]{
+        Human michael = new Human("Michael", "Doe", 2000);
+        Human anna = new Human("Anna", "Doe", 2001);
+        Human john = new Human("John", "Doe", 2022);
+        Human emma = new Human("Emma", "Doe", 2024);
+
+        Human lara = new Human();
+            lara.setName("Lara");
+            lara.setSurname("Green");
+            lara.setBirthYear(1959);
+            lara.setIq(90);
+            lara.setSchedule(new String[][]{
                     {"Monday", "gardening"},
                     {"Tuesday", "knitting"},
                     {"Wednesday", "watch classic movies"},
@@ -30,60 +32,95 @@ public class HappyFamilyApp {
                     {"Friday", "bake cookies"}
             });
 
-        Human human2 = new Human();
-            human2.setName("Sophia");
-            human2.setSurname("Green");
-            human2.setBirthYear(1960);
-            human2.setIq(70);
-            human2.setMother(null);
-            human2.setFather(null);
-            human2.setPet(misty);
-            human2.setSchedule(new String[][]{
-                    {"Thursday", "practice piano"},
-                    {"Saturday", "go hiking"}
-            });
-
-        Human human3 = new Human(
+        Human david = new Human(
                 "David",
                 "Green",
-                2000,
-                80,
-                coco,
-                human2,
-                human1,
+                1959,
+                95,
                 new String[][]{
                         {"Wednesday", "go swimming"},
                         {"Friday", "watch movie"}
                 }
         );
 
-        Human michael = new Human("Michael", "Doe", 2000);
-        Human anna = new Human("Anna", "Doe", 2001);
-        Human john = new Human("John", "Doe", 2022, michael, anna);
-        Human emma = new Human("Emma", "Doe", 2024, michael, anna);
+        Human sophia = new Human();
+            sophia.setName("Sophia");
+            sophia.setSurname("Green");
+            sophia.setBirthYear(1995);
+            sophia.setIq(70);
+            sophia.setSchedule(new String[][]{
+                    {"Thursday", "practice piano"},
+                    {"Saturday", "go hiking"}
+            });
 
-        System.out.println("\n============ Demonstrating toString() Output for All Family Members ============");        System.out.println(human1);
-        System.out.println(human2);
-        System.out.println(human3);
+        Family doeFamily = new Family(michael, anna);
+        Family greenFamily = new Family(david, lara);
+
+        System.out.println("\n============ Demonstrating toString() Output for Human Class ============");        System.out.println(lara);
+        System.out.println(sophia);
+        System.out.println(david);
         System.out.println(anna);
         System.out.println(john);
         System.out.println(michael);
         System.out.println(emma);
+        System.out.println(lara);
         System.out.println("==============================================================================\n");
 
-        System.out.println("============ Demonstrating All Methods for a Child (David) and his Pet (Coco) ============");
-        System.out.println("\n--- Child's Interactions ---");
-        human3.greetPet();
-        human3.describePet();
+
+        System.out.println("\n============ Demonstrating toString() Output for Family Class ============");
+        System.out.println(doeFamily);
+        System.out.println(greenFamily);
+        System.out.println("==============================================================================\n");
+
+        System.out.println("============ Demonstrating All Methods for a Family methods ============");
+        System.out.println("\n--- Child ---");
+        doeFamily.addChild(john);
+        doeFamily.addChild(emma);
+        doeFamily.setPet(coco);
+        greenFamily.addChild(sophia);
+        greenFamily.setPet(misty);
+
+        System.out.println("\n============ Family toString() Output AFTER Adding Children ============");
+        System.out.println(doeFamily);
+        System.out.println(greenFamily);
+        System.out.println("==============================================================================\n");
+
+        if(greenFamily.deleteChild(sophia)){
+            System.out.println("Child has been deleted");
+        }
+        else{
+            System.out.println("Child has NOT been deleted");
+        }
+
+        if(greenFamily.deleteChild(sophia)){
+            System.out.println("Child has been deleted");
+        }
+        else{
+            System.out.println("Child has NOT been deleted");
+        }
+
+        if(doeFamily.deleteChild(0)){
+            System.out.println("Child has been deleted");
+        }
+        else{
+            System.out.println("Child has NOT been deleted");
+        }
+
+
+        System.out.println("\n============ Family toString() Output AFTER Deleting a Child ============");
+        System.out.println(doeFamily);
+        System.out.println(greenFamily);
+        System.out.println("==============================================================================\n");
+
 
         System.out.println("\n--- Pet's Behaviors ---");
-        human3.getPet().respond();
-        human3.getPet().eat();
-        human3.getPet().foul();
+        doeFamily.getPet().respond();
+        doeFamily.getPet().eat();
+        doeFamily.getPet().foul();
 
         System.out.println("\n--- Testing the feedPet() Method ---");
-        human3.feedPet(false);
-        human3.feedPet(true);
+        doeFamily.feedPet(false);
+        doeFamily.feedPet(true);
 
         System.out.println("===========================================================================================");
     }
