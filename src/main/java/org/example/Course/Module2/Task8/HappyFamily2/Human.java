@@ -4,6 +4,15 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
+
+    static {
+        System.out.println("New class is being loaded: Human");
+    }
+
+    {
+        System.out.println("New object is being created: Human");
+    }
+
     private String name;
     private String surname;
     private int birthYear;
@@ -79,26 +88,21 @@ public class Human {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Human human)) return false;
-        return Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(birthYear, human.birthYear) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Arrays.deepEquals(schedule, human.schedule);
+        return birthYear == human.birthYear && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, birthYear, pet, mother, father, Arrays.deepHashCode(schedule));
+        return Objects.hash(name, surname, birthYear, iq, Arrays.deepHashCode(schedule));
     }
 
     @Override
     public String toString() {
-        String motherInfo = (this.mother != null) ? mother.getName() + " " + mother.getSurname() : "null";
-        String fatherInfo = (this.father != null) ? father.getName() + " " + father.getSurname() : "null";
-        String petInfo = (this.pet != null) ? pet.toString() : "null";
         return "\nHuman ->{" +
-                " | Name: " + name +
+                " Name: " + name +
                 " | Surname: " + surname +
-                " | DateOfBirth: " + birthYear +
+                " | BirthYear: " + birthYear +
                 " | Iq: " + iq +
-                " | Mother: " + motherInfo +
-                " | Father: " + fatherInfo +
-                " | \n\tPet: " + petInfo + "}";
+                "\n\t | Schedule: " + Arrays.deepToString(schedule) + " }";
     }
 }

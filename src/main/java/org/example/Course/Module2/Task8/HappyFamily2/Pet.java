@@ -4,6 +4,15 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
+
+    static {
+        System.out.println("New class is being loaded: Pet");
+    }
+
+    {
+        System.out.println("New object is being created: Pet");
+    }
+
     private String species;
     private String nickname;
     private int age;
@@ -92,10 +101,10 @@ public class Pet {
     @Override
     public String toString() {
         return "Pet ->{" +
-                " | Nickname: " + nickname +
+                " Nickname: " + nickname +
                 " | Age: " + age +
                 " | TrickLevel: " + trickLevel +
-                " | Habits: [" + Arrays.toString(habits) +"]}";
+                " | Habits: [" + Arrays.toString(habits) + "]}";
     }
 }
 
