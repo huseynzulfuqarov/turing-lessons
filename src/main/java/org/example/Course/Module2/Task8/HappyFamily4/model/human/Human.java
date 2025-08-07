@@ -3,7 +3,7 @@ package org.example.Course.Module2.Task8.HappyFamily4.model.human;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Human {
+public abstract class Human {
 
     static {
         System.out.println("New class is being loaded: Human");
@@ -95,16 +95,6 @@ public class Human {
     public int hashCode() {
         return Objects.hash(name, surname, birthYear, iq);
     }
-
-    /*@Override
-    public String toString() {
-        return "\nHuman ->{" +
-                " Name: " + name +
-                " | Surname: " + surname +
-                " | BirthYear: " + birthYear +
-                " | Iq: " + iq +
-                "\n\t | Schedule: " + Arrays.deepToString(schedule) + " }";
-    }*/
 
     @Override
     public String toString() {

@@ -5,7 +5,7 @@ import org.example.Course.Module2.Task8.HappyFamily4.enums.Species;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
+public abstract class Pet {
 
     static {
         System.out.println("New class is being loaded: Pet");
@@ -21,13 +21,11 @@ public class Pet {
     private int trickLevel;
     private String[] habits = new String[0];
 
-    public Pet(String nickname, Species species) {
+    public Pet(String nickname) {
         this.nickname = nickname;
-        this.species = species;
     }
 
-    public Pet(String nickname, Species species, int age, int trickLevel, String[] habits) {
-        this.species = species;
+    public Pet(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -35,14 +33,6 @@ public class Pet {
     }
 
     public Pet() {
-    }
-
-    public Species getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(Species species) {
-        this.species = species;
     }
 
     public String getNickname() {
@@ -77,16 +67,18 @@ public class Pet {
         this.habits = habits;
     }
 
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
+    }
+
+    public abstract void respond();
+
     public void eat() {
         System.out.println("I am eating.");
-    }
-
-    public void respond() {
-        System.out.printf("Hello, owner. I am - %s. I miss you!\n", nickname);
-    }
-
-    public void foul() {
-        System.out.println("I need to cover it up.");
     }
 
     @Override
