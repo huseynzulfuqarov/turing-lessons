@@ -1,4 +1,6 @@
-package org.example.Course.Module2.Task8.HappyFamily4;
+package org.example.Course.Module2.Task8.HappyFamily4.model.pet;
+
+import org.example.Course.Module2.Task8.HappyFamily4.enums.Species;
 
 import java.util.Arrays;
 import java.util.Objects;

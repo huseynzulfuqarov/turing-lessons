@@ -1,4 +1,4 @@
-package org.example.Course.Module2.Task8.HappyFamily4;
+package org.example.Course.Module2.Task8.HappyFamily4.model.human;
 
 import java.util.Arrays;
 import java.util.Objects;
