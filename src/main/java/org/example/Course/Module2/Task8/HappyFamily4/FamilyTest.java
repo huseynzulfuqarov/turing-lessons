@@ -1,5 +1,9 @@
 package org.example.Course.Module2.Task8.HappyFamily4;
 
+import org.example.Course.Module2.Task8.HappyFamily4.model.human.Family;
+import org.example.Course.Module2.Task8.HappyFamily4.model.human.Human;
+import org.example.Course.Module2.Task8.HappyFamily4.model.human.Man;
+import org.example.Course.Module2.Task8.HappyFamily4.model.human.Woman;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,18 +12,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FamilyTest {
 
     private Family family;
-    private Human father;
-    private Human mother;
-    private Human child1;
-    private Human child2;
+    Human father;
+    Human mother;
+    Human child1;
+    Human child2;
 
     @BeforeEach
     void setUp() {
-        father = new Human("Vito", "Corleone", 1920);
-        mother = new Human("Carmela", "Corleone", 1925);
+        father = new Man("Vito", "Corleone", 1920);
+        mother = new Woman("Carmela", "Corleone", 1925);
         family = new Family(father, mother);
-        child1 = new Human("Sonny", "Corleone", 1946);
-        child2 = new Human("Michael", "Corleone", 1950);
+        child1 = new Man("Sonny", "Corleone", 1946);
+        child2 = new Woman("Michael", "Corleone", 1950);
     }
 
     @Test
@@ -47,14 +51,14 @@ public class FamilyTest {
 
         assertTrue(result);
         assertEquals(3, family.countFamily());
-        assertEquals(child2, family.getChildren()[0]); // Sonny is deleted, Michael is now at index 0
-        assertNull(child1.getFamily()); // Check if the link is broken
+        assertEquals(child2, family.getChildren()[0]);
+        assertNull(child1.getFamily());
     }
 
     @Test
     void deleteChildByObject_shouldNotChangeArrayOnFailure() {
         family.addChild(child1);
-        Human stranger = new Human("Fredo", "Corleone", 1948);
+        Man stranger = new Man("Fredo", "Corleone", 1948);
         assertEquals(3, family.countFamily());
 
         boolean result = family.deleteChild(stranger);
@@ -80,7 +84,7 @@ public class FamilyTest {
         family.addChild(child1);
         assertEquals(3, family.countFamily());
 
-        boolean result = family.deleteChild(5); // Index out of bounds
+        boolean result = family.deleteChild(5);
 
         assertFalse(result);
         assertEquals(3, family.countFamily());
