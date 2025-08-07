@@ -119,5 +119,10 @@ public class Pet {
                 ", hasFur=" + species.hasFur() +
                 '}';
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Finalize: Pet object is being destroyed -> " + this.species + " " + this.nickname);
+    }
 }
 

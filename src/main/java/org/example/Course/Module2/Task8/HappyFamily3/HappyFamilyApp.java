@@ -25,11 +25,6 @@ public class HappyFamilyApp {
             lara.setBirthYear(1959);
             lara.setIq(90);
             lara.setSchedule(new String[][]{
-                    {"Monday", "gardening"},
-                    {"Tuesday", "knitting"},
-                    {"Wednesday", "watch classic movies"},
-                    {"Thursday", "visit friends"},
-                    {"Friday", "bake cookies"}
                     {DayOfWeek.MONDAY.name(), "gardening"},
                     {DayOfWeek.THURSDAY.name(), "knitting"},
                     {DayOfWeek.WEDNESDAY.name(), "watch classic movies"},
@@ -128,5 +123,12 @@ public class HappyFamilyApp {
         doeFamily.feedPet(true);
 
         System.out.println("===========================================================================================");
+
+
+        System.out.println("\n---  Garbage Collector ---");
+        for (int i = 0; i < 1000000; i++) {
+            new Human();
+        }
+        System.out.println("Loop finished. GC will clean up unreachable objects.");
     }
 }

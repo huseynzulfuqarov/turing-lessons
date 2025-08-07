@@ -93,10 +93,10 @@ public class Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, birthYear, iq, Arrays.deepHashCode(schedule));
+        return Objects.hash(name, surname, birthYear, iq);
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "\nHuman ->{" +
                 " Name: " + name +
@@ -104,5 +104,21 @@ public class Human {
                 " | BirthYear: " + birthYear +
                 " | Iq: " + iq +
                 "\n\t | Schedule: " + Arrays.deepToString(schedule) + " }";
+    }*/
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + birthYear +
+                ", iq=" + iq +
+                ", schedule=" + Arrays.deepToString(schedule) +
+                '}';
+        }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Finalize: Human object is being destroyed -> " + this.name + " " + this.surname);
     }
 }

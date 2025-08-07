@@ -186,4 +186,9 @@ public class Family {
                 "\n\t | Children: " + getChildrenNamesFromArray(children) +
                 "\n\t\t | Pet: " + petData + " }";
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Finalize: Family object is being destroyed -> " + this.father.getSurname() + " family");
+    }
 }
