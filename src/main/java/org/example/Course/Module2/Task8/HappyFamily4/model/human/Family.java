@@ -1,10 +1,14 @@
 package org.example.Course.Module2.Task8.HappyFamily4.model.human;
 
+import org.example.Course.Module2.Task8.HappyFamily4.model.pet.Pet;
+import org.example.Course.Module2.Task8.HappyFamily4.service.HumanCreator;
+
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
-public class Family {
+public class Family implements HumanCreator {
 
     static {
         System.out.println("New class is being loaded: Family");
@@ -14,6 +18,32 @@ public class Family {
         System.out.println("New object is being created: Family");
     }
 
+    private String[] boyNames = {
+            "Liam", "Noah", "Oliver", "Elijah", "James",
+            "William", "Benjamin", "Lucas", "Henry", "Alexander",
+            "Mason", "Michael", "Ethan", "Daniel", "Jacob",
+            "Logan", "Jackson", "Levi", "Sebastian", "Mateo",
+            "Jack", "Owen", "Theodore", "Aiden", "Samuel",
+            "Joseph", "John", "David", "Wyatt", "Matthew",
+            "Luke", "Asher", "Carter", "Julian", "Grayson",
+            "Leo", "Jayden", "Gabriel", "Isaac", "Lincoln",
+            "Anthony", "Hudson", "Dylan", "Ezra", "Thomas",
+            "Charles", "Christopher", "Jaxon", "Maverick", "Josiah"
+    };
+
+    private String[] girlNames = {
+            "Olivia", "Emma", "Charlotte", "Amelia", "Sophia",
+            "Isabella", "Ava", "Mia", "Evelyn", "Luna",
+            "Harper", "Camila", "Gianna", "Elizabeth", "Eleanor",
+            "Ella", "Abigail", "Sofia", "Emily", "Avery",
+            "Scarlett", "Grace", "Chloe", "Lily", "Aria",
+            "Layla", "Mila", "Nora", "Hazel", "Madison",
+            "Ellie", "Penelope", "Riley", "Zoey", "Nora",
+            "Lillian", "Addison", "Willow", "Lucy", "Paisley",
+            "Natalie", "Naomi", "Eliana", "Brooklyn", "Elena",
+            "Aubrey", "Claire", "Ivy", "Kinsley", "Audrey"
+    };
+
     private Human father;
     private Human mother;
     private Human[] children = new Human[0];
@@ -22,6 +52,7 @@ public class Family {
     public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
+        this.mother.setSurname(father.getSurname());
         if (father.getFamily() != null) {
             father.getFamily().deleteChild(father);
         }
@@ -150,6 +181,35 @@ public class Family {
             System.out.printf("I think %s is not hungry.\n", pet.getNickname());
             return false;
         }
+    }
+
+    @Override
+    public Human bornChild() {
+
+        Random rand = new Random();
+        LocalDateTime now = LocalDateTime.now();
+
+        int setGender = rand.nextInt(2);
+        int setName = rand.nextInt(50);
+
+        int birthYear = now.getYear();
+        String surname = father.getSurname();
+        int fatherIq = father.getIq();
+        int motherIq = mother.getIq();
+        int iq = (fatherIq + motherIq) / 2;
+        String[][] schedule = new String[0][0];
+
+        Human child;
+        if (setGender == 1) {
+            String name = boyNames[setName];
+            child = new Man(name, surname, birthYear, iq, schedule);
+        } else {
+            String name = girlNames[setName];
+            child = new Woman(name, surname, birthYear, iq, schedule);
+
+        }
+        addChild(child);
+        return child;
     }
 
     private String getChildrenNamesFromArray(Human[] children) {
