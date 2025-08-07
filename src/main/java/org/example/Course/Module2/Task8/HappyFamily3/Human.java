@@ -115,7 +115,7 @@ public class Human {
                 ", iq=" + iq +
                 ", schedule=" + Arrays.deepToString(schedule) +
                 '}';
-        }
+    }
 
     @Override
     protected void finalize() throws Throwable {

@@ -5,11 +5,11 @@ public class HappyFamilyApp {
     public static void main(String[] args) {
 
         Pet pet1 = new Pet();
-            pet1.setSpecies(Species.DOG);
-            pet1.setNickname("Rex");
-            pet1.setAge(3);
-            pet1.setTrickLevel(45);
-            pet1.setHabits(new String[]{"bark", "run"});
+        pet1.setSpecies(Species.DOG);
+        pet1.setNickname("Rex");
+        pet1.setAge(3);
+        pet1.setTrickLevel(45);
+        pet1.setHabits(new String[]{"bark", "run"});
 
         Pet misty = new Pet("Misty", Species.CAT);
         Pet coco = new Pet("Coco", Species.PARROT, 2, 60, new String[]{"talk", "fly"});
@@ -20,17 +20,17 @@ public class HappyFamilyApp {
         Human emma = new Human("Emma", "Doe", 2024);
 
         Human lara = new Human();
-            lara.setName("Lara");
-            lara.setSurname("Green");
-            lara.setBirthYear(1959);
-            lara.setIq(90);
-            lara.setSchedule(new String[][]{
-                    {DayOfWeek.MONDAY.name(), "gardening"},
-                    {DayOfWeek.THURSDAY.name(), "knitting"},
-                    {DayOfWeek.WEDNESDAY.name(), "watch classic movies"},
-                    {DayOfWeek.THURSDAY.name(), "visit friends"},
-                    {DayOfWeek.FRIDAY.name(), "bake cookies"}
-            });
+        lara.setName("Lara");
+        lara.setSurname("Green");
+        lara.setBirthYear(1959);
+        lara.setIq(90);
+        lara.setSchedule(new String[][]{
+                {DayOfWeek.MONDAY.name(), "gardening"},
+                {DayOfWeek.THURSDAY.name(), "knitting"},
+                {DayOfWeek.WEDNESDAY.name(), "watch classic movies"},
+                {DayOfWeek.THURSDAY.name(), "visit friends"},
+                {DayOfWeek.FRIDAY.name(), "bake cookies"}
+        });
 
         Human david = new Human(
                 "David",
@@ -44,19 +44,20 @@ public class HappyFamilyApp {
         );
 
         Human sophia = new Human();
-            sophia.setName("Sophia");
-            sophia.setSurname("Green");
-            sophia.setBirthYear(1995);
-            sophia.setIq(70);
-            sophia.setSchedule(new String[][]{
-                    {DayOfWeek.THURSDAY.name(), "practice piano"},
-                    {DayOfWeek.FRIDAY.name(), "go hiking"}
-            });
+        sophia.setName("Sophia");
+        sophia.setSurname("Green");
+        sophia.setBirthYear(1995);
+        sophia.setIq(70);
+        sophia.setSchedule(new String[][]{
+                {DayOfWeek.THURSDAY.name(), "practice piano"},
+                {DayOfWeek.FRIDAY.name(), "go hiking"}
+        });
 
         Family doeFamily = new Family(michael, anna);
         Family greenFamily = new Family(david, lara);
 
- System.out.println("\n============ Demonstrating toString() Output for Human Class ============");        System.out.println(lara);
+        System.out.println("\n============ Demonstrating toString() Output for Human Class ============");
+        System.out.println(lara);
         System.out.println(sophia);
         System.out.println(david);
         System.out.println(anna);
@@ -85,24 +86,21 @@ public class HappyFamilyApp {
         System.out.println(greenFamily);
         System.out.println("==============================================================================\n");
 
-        if(greenFamily.deleteChild(sophia)){
+        if (greenFamily.deleteChild(sophia)) {
             System.out.println("Child has been deleted");
-        }
-        else{
+        } else {
             System.out.println("Child has NOT been deleted");
         }
 
-        if(greenFamily.deleteChild(sophia)){
+        if (greenFamily.deleteChild(sophia)) {
             System.out.println("Child has been deleted");
-        }
-        else{
+        } else {
             System.out.println("Child has NOT been deleted");
         }
 
-        if(doeFamily.deleteChild(0)){
+        if (doeFamily.deleteChild(0)) {
             System.out.println("Child has been deleted");
-        }
-        else{
+        } else {
             System.out.println("Child has NOT been deleted");
         }
 
