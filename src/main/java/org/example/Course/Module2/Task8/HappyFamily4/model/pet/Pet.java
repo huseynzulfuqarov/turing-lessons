@@ -91,15 +91,6 @@ public abstract class Pet {
     public int hashCode() {
         return Objects.hash(species, nickname, age, trickLevel, Arrays.hashCode(habits));
     }
-/*
-    @Override
-    public String toString() {
-        return "Pet ->{" +
-                " Nickname: " + nickname +
-                " | Age: " + age +
-                " | TrickLevel: " + trickLevel +
-                " | Habits: [" + Arrays.toString(habits) + "]}";
-    }*/
 
     @Override
     public String toString() {

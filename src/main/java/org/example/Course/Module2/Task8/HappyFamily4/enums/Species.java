@@ -2,7 +2,8 @@ package org.example.Course.Module2.Task8.HappyFamily4.enums;
 
 public enum Species {
     DOG(false, 4, true),
-    CAT(false, 4, true),
+    ROBOCAT(false, 4, true),
+    DOMESTIC_CAT(false, 4, true),
     PARROT(true, 2, false),
     FISH(false, 0, false),
     UNKNOWN(false, 0, false);
