@@ -13,18 +13,18 @@ public class Pet {
         System.out.println("New object is being created: Pet");
     }
 
-    private String species;
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits = new String[0];
 
-    public Pet(String nickname, String species) {
+    public Pet(String nickname, Species species) {
         this.nickname = nickname;
         this.species = species;
     }
 
-    public Pet(String nickname, String species, int age, int trickLevel, String[] habits) {
+    public Pet(String nickname, Species species, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -35,11 +35,11 @@ public class Pet {
     public Pet() {
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -97,7 +97,7 @@ public class Pet {
     public int hashCode() {
         return Objects.hash(species, nickname, age, trickLevel, Arrays.hashCode(habits));
     }
-
+/*
     @Override
     public String toString() {
         return "Pet ->{" +
@@ -105,6 +105,19 @@ public class Pet {
                 " | Age: " + age +
                 " | TrickLevel: " + trickLevel +
                 " | Habits: [" + Arrays.toString(habits) + "]}";
+    }*/
+
+    @Override
+    public String toString() {
+        return species.name() + "{" +
+                "nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", trickLevel=" + trickLevel +
+                ", habits=" + Arrays.toString(habits) +
+                ", canFly=" + species.canFly() +
+                ", numberOfLegs=" + species.getNumberOfLegs() +
+                ", hasFur=" + species.hasFur() +
+                '}';
     }
 }
 

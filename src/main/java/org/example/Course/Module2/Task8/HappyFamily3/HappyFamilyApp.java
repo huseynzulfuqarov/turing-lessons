@@ -5,14 +5,14 @@ public class HappyFamilyApp {
     public static void main(String[] args) {
 
         Pet pet1 = new Pet();
-            pet1.setSpecies("dog");
+            pet1.setSpecies(Species.DOG);
             pet1.setNickname("Rex");
             pet1.setAge(3);
             pet1.setTrickLevel(45);
             pet1.setHabits(new String[]{"bark", "run"});
 
-        Pet misty = new Pet("Misty", "cat");
-        Pet coco = new Pet("Coco", "parrot", 2, 60, new String[]{"talk", "fly"});
+        Pet misty = new Pet("Misty", Species.CAT);
+        Pet coco = new Pet("Coco", Species.PARROT, 2, 60, new String[]{"talk", "fly"});
 
         Human michael = new Human("Michael", "Doe", 2000);
         Human anna = new Human("Anna", "Doe", 2001);
@@ -30,6 +30,11 @@ public class HappyFamilyApp {
                     {"Wednesday", "watch classic movies"},
                     {"Thursday", "visit friends"},
                     {"Friday", "bake cookies"}
+                    {DayOfWeek.MONDAY.name(), "gardening"},
+                    {DayOfWeek.THURSDAY.name(), "knitting"},
+                    {DayOfWeek.WEDNESDAY.name(), "watch classic movies"},
+                    {DayOfWeek.THURSDAY.name(), "visit friends"},
+                    {DayOfWeek.FRIDAY.name(), "bake cookies"}
             });
 
         Human david = new Human(
@@ -38,8 +43,8 @@ public class HappyFamilyApp {
                 1959,
                 95,
                 new String[][]{
-                        {"Wednesday", "go swimming"},
-                        {"Friday", "watch movie"}
+                        {DayOfWeek.THURSDAY.name(), "go swimming"},
+                        {DayOfWeek.FRIDAY.name(), "watch movie"}
                 }
         );
 
@@ -49,14 +54,14 @@ public class HappyFamilyApp {
             sophia.setBirthYear(1995);
             sophia.setIq(70);
             sophia.setSchedule(new String[][]{
-                    {"Thursday", "practice piano"},
-                    {"Saturday", "go hiking"}
+                    {DayOfWeek.THURSDAY.name(), "practice piano"},
+                    {DayOfWeek.FRIDAY.name(), "go hiking"}
             });
 
         Family doeFamily = new Family(michael, anna);
         Family greenFamily = new Family(david, lara);
 
-        System.out.println("\n============ Demonstrating toString() Output for Human Class ============");        System.out.println(lara);
+ System.out.println("\n============ Demonstrating toString() Output for Human Class ============");        System.out.println(lara);
         System.out.println(sophia);
         System.out.println(david);
         System.out.println(anna);
