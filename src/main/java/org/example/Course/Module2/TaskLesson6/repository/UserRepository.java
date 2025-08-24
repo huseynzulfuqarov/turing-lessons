@@ -4,6 +4,7 @@ import org.example.Course.Module2.TaskLesson6.model.ImmutableUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class UserRepository {
@@ -14,9 +15,9 @@ public class UserRepository {
         users.add(user);
     }
 
-    public Optional<ImmutableUser> findById(int id) {
-        for (ImmutableUser user : users) {
-            if (user.getId() == id) {
+    public Optional<T> findById(int id) {
+        for (T user : users) {
+            if (Objects.equals(user.getId(), id)) {
                 return Optional.of(user);
             }
         }

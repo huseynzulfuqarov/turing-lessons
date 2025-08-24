@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public final class ImmutableUser {
-    private final int id;
+    private final Integer id;
     private final String name;
     private final UUID uuid = UUID.randomUUID();
 
@@ -13,7 +13,7 @@ public final class ImmutableUser {
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

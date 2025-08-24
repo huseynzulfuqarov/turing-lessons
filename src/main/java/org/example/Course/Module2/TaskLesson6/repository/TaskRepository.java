@@ -5,6 +5,7 @@ import org.example.Course.Module2.TaskLesson6.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class TaskRepository<T extends Task> {
@@ -16,10 +17,9 @@ public class TaskRepository<T extends Task> {
     }
 
     public Optional<T> findById(int id) {
-        boolean found = false;
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getId() == id) {
-                return Optional.of(tasks.get(i));
+        for (T task : tasks) {
+            if (Objects.equals(task.getId(), id)) {
+                return Optional.of(task);
             }
         }
         return Optional.empty();
@@ -27,9 +27,9 @@ public class TaskRepository<T extends Task> {
 
     public void deleteById(int id) throws TaskNotFoundException {
         boolean found = false;
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getId() == id) {
-                tasks.remove(i);
+        for (T task : tasks) {
+            if (Objects.equals(task.getId(), id)) {
+                tasks.remove(task);
                 found = true;
                 break;
             }
