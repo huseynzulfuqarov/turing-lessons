@@ -2,12 +2,14 @@ package org.example.Course.Module2.TaskLesson6.ui;
 
 import org.example.Course.Module2.TaskLesson6.emums.TaskStatus;
 import org.example.Course.Module2.TaskLesson6.exception.TaskNotFoundException;
+import org.example.Course.Module2.TaskLesson6.exception.UserNotFoundException;
 import org.example.Course.Module2.TaskLesson6.model.*;
 import org.example.Course.Module2.TaskLesson6.service.TaskServiceImpl;
 import org.example.Course.Module2.TaskLesson6.service.UserServiceImpl;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class UI {
@@ -70,11 +72,28 @@ public class UI {
     }
 
     private void createTask() {
+        Task task;
         System.out.print("Enter task title: ");
         String title = scanner.nextLine();
         System.out.print("Enter task description: ");
         String description = scanner.nextLine();
-        Task task = new Task(title, description, false, TaskStatus.NEW);
+        System.out.print("Has his task deadline?(y/n)");
+        String choice = scanner.nextLine();
+        if (choice.equalsIgnoreCase("y")) {
+            LocalDateTime deadline = null;
+            while (deadline == null) {
+                System.out.print("Enter deadLine: (like --> 2025-12-31T23:59:00) ");
+                String deadlineStr = scanner.nextLine();
+                try {
+                    deadline = LocalDateTime.parse(deadlineStr);
+                } catch (DateTimeParseException e) {
+                    System.out.println("Invalid deadline format! Please try again.");
+                }
+            }
+            task = new DeadlineTask(title, description, false, TaskStatus.NEW, deadline);
+        } else {
+            task = new Task(title, description, false, TaskStatus.NEW);
+        }
         taskService.addTask(task);
         System.out.println("Task created successfully! ID: " + task.getId());
     }
@@ -86,20 +105,13 @@ public class UI {
         System.out.print("Enter the user ID to assign: ");
         int userId = scanner.nextInt();
         scanner.nextLine();
-
         try {
+            ImmutableUser user = userService.findUserById(userId);
             Task task = taskService.findTaskById(taskId);
-            Optional<ImmutableUser> userOpt = userService.findUserById(userId);
-
-            if (userOpt.isPresent()) {
-                ImmutableUser user = userOpt.get();
-                task.addUser(user);
-                System.out.println("User '" + user.getName() + "' assigned to task '" + task.getTitle() + "'.");
-            } else {
-                System.out.println("ERROR: User with id " + userId + " not found!");
-            }
-        } catch (TaskNotFoundException e) {
-            System.out.println("ERROR: " + e.getMessage());
+            task.addUser(user);
+            System.out.println("User '" + user.getName() + "' assigned to task '" + task.getTitle() + "'.");
+        } catch (TaskNotFoundException | UserNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -110,6 +122,7 @@ public class UI {
         try {
             Task task = taskService.findTaskById(id);
             System.out.println("Found Task: " + task);
+            checkAndPrintDeadlineWarning(task);
         } catch (TaskNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -123,6 +136,7 @@ public class UI {
             System.out.println("--- All Tasks ---");
             for (Task task : tasks) {
                 System.out.println(task);
+                checkAndPrintDeadlineWarning(task);
             }
         }
     }
@@ -131,7 +145,12 @@ public class UI {
         System.out.print("Enter task ID to delete: ");
         int id = scanner.nextInt();
         scanner.nextLine();
-        taskService.removeTask(id);
+        try {
+            taskService.removeTask(id);
+            System.out.println("Task with id " + id + " successfully deleted.");
+        } catch (TaskNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void listAllUsers() {
@@ -142,6 +161,14 @@ public class UI {
             System.out.println("--- All Users ---");
             for (ImmutableUser user : users) {
                 System.out.println("ID: " + user.getId() + ", Name: " + user.getName());
+            }
+        }
+    }
+
+    private void checkAndPrintDeadlineWarning(Task task) {
+        if (task instanceof DeadlineTask deadlineTask) {
+            if (deadlineTask.getDeadline().isBefore(LocalDateTime.now())) {
+                System.out.println("Warning!!! Deadline is before deadline " + deadlineTask.getDeadline());
             }
         }
     }

@@ -17,18 +17,13 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task findTaskById(int id) {
+    public Task findTaskById(int id) throws TaskNotFoundException {
         return taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task with id " + id + " not found!"));
     }
 
     @Override
-    public void removeTask(int id) {
-        try {
-            taskRepository.deleteById(id);
-            System.out.println("Task with id " + id + " successfully deleted.");
-        } catch (TaskNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+    public void removeTask(int id) throws TaskNotFoundException {
+        taskRepository.deleteById(id);
     }
 
     @Override
