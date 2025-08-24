@@ -94,12 +94,12 @@ public class Task {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return isComplete == task.isComplete && Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(creationAt, task.creationAt) && status == task.status && Objects.equals(users, task.users) && Objects.equals(uuid, task.uuid);
+        return isComplete == task.isComplete && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(creationAt, task.creationAt) && status == task.status && Objects.equals(users, task.users) && Objects.equals(uuid, task.uuid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, creationAt, isComplete, status, users, uuid);
+        return Objects.hash(title, description, creationAt, isComplete, status, users, uuid);
     }
 
     @Override

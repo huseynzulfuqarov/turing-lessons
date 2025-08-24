@@ -25,12 +25,12 @@ public final class ImmutableUser {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         ImmutableUser that = (ImmutableUser) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(uuid, that.uuid);
+        return Objects.equals(name, that.name) && Objects.equals(uuid, that.uuid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, uuid);
+        return Objects.hash(name, uuid);
     }
 
     @Override
@@ -38,7 +38,6 @@ public final class ImmutableUser {
         return "ImmutableUser{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", uuid=" + uuid +
                 '}';
     }
 }
