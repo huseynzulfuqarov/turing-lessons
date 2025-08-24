@@ -5,6 +5,7 @@ import org.example.Course.Module2.TaskLesson6.model.Task;
 import java.util.List;
 
 public interface TaskService {
+
     void addTask(Task task);
 
     void removeTask(int id);
@@ -12,6 +13,4 @@ public interface TaskService {
     Task findTaskById(int id);
 
     List<Task> listAllTasks();
-
-
 }

@@ -6,7 +6,8 @@ import java.time.LocalDateTime;
 
 public class DeadlineTask extends Task {
     private LocalDateTime deadline;
-    public DeadlineTask(String title, String description, boolean isComplete, TaskStatus status,  LocalDateTime deadline) {
+
+    public DeadlineTask(String title, String description, boolean isComplete, TaskStatus status, LocalDateTime deadline) {
         super(title, description, isComplete, status);
         this.deadline = deadline;
     }

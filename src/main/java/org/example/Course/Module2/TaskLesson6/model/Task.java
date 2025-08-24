@@ -3,45 +3,34 @@ package org.example.Course.Module2.TaskLesson6.model;
 import org.example.Course.Module2.TaskLesson6.emums.TaskStatus;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
+import java.util.UUID;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Task {
-    private Integer id;
+    private final Integer id;
     private String title;
     private String description;
     private LocalDateTime creationAt;
     private boolean isComplete;
     private TaskStatus status;
-    private List<ImmutableUser> users;
+    private final List<ImmutableUser> users;
     private final UUID uuid = UUID.randomUUID();
 
-
     public Task(String title, String description, boolean isComplete, TaskStatus status) {
-        this.id =  uuid.toString().hashCode();
+        this.id = uuid.toString().hashCode();
         this.title = title;
         this.description = description;
-        LocalDateTime now = LocalDateTime.now();
-        this.creationAt = now;
+        this.creationAt = LocalDateTime.now();
         this.isComplete = isComplete;
         this.status = status;
+        this.users = new ArrayList<>();
     }
 
-    public Task() {}
     public Integer getId() {
         return id;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-   public void setUsers(List<ImmutableUser> users) {
-        this.users = users;
-
-   }
-
-   public List<ImmutableUser> getUsers() {
-        return users;
-   }
 
     public String getTitle() {
         return title;
@@ -83,8 +72,18 @@ public class Task {
         this.status = status;
     }
 
+    public List<ImmutableUser> getUsers() {
+        return new ArrayList<>(users);
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public void addUser(ImmutableUser user) {
-        users.add(user);
+        if (!users.contains(user)) {
+            users.add(user);
+        }
     }
 
     public void removeUser(ImmutableUser user) {
@@ -95,11 +94,24 @@ public class Task {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return isComplete == task.isComplete && Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(creationAt, task.creationAt) && status == task.status;
+        return isComplete == task.isComplete && Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(creationAt, task.creationAt) && status == task.status && Objects.equals(users, task.users) && Objects.equals(uuid, task.uuid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, creationAt, isComplete, status);
+        return Objects.hash(id, title, description, creationAt, isComplete, status, users, uuid);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", creationAt=" + creationAt +
+                ", isComplete=" + isComplete +
+                ", status=" + status +
+                ", users=" + users +
+                '}';
     }
 }
