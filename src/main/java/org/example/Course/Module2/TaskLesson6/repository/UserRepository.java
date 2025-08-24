@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class UserRepository {
+public class UserRepository<T extends ImmutableUser> {
 
-    private final List<ImmutableUser> users = new ArrayList<>();
+    private final List<T> users = new ArrayList<>();
 
-    public void save(ImmutableUser user) {
+    public void save(T user) {
         users.add(user);
     }
 
