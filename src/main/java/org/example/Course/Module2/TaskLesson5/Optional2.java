@@ -8,17 +8,11 @@ public class Optional2<T> {
     }
 
     public boolean isEmpty() {
-        if (value == null) {
-            return true;
-        }
-        return false;
+        return value == null;
     }
 
     public boolean isPresent() {
-        if (value != null) {
-            return true;
-        }
-        return false;
+        return value != null;
     }
 
     public T getValue() {
@@ -31,6 +25,15 @@ public class Optional2<T> {
 
     public void setValue(T value) {
         this.value = value;
+    }
+
+    public static  <T> Optional2<T> of(T value) {
+        if (value == null) {
+            throw new NullPointerException("value is null");
+        }
+        return new Optional2<T>(value);
+
+
     }
 }
 
