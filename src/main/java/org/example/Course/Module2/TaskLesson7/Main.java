@@ -142,18 +142,14 @@ public class Main {
     public static Student[] sortByAgeName(Student[] students) {
         for (int i = 0; i < students.length - 1; i++) {
             for (int j = 0; j < students.length - i - 1; j++) {
-                if (students[j].getAge() > students[j + 1].getAge()) {
+                if (students[j].getAge() > students[j + 1].getAge() ||
+                        (students[j].getAge() == students[j + 1].getAge() &&
+                                students[j].getName().compareTo(students[j + 1].getName()) > 0)) {
+
                     Student temp = students[j];
                     students[j] = students[j + 1];
                     students[j + 1] = temp;
-                } else if (students[j].getAge() == students[j + 1].getAge()) {
-                    if (students[j].getName().compareTo(students[j + 1].getName()) > 0) {
-                        Student temp = students[j];
-                        students[j] = students[j + 1];
-                        students[j + 1] = temp;
-                    }
                 }
-
             }
         }
         return students;
@@ -162,16 +158,13 @@ public class Main {
     public static Student[] sortByGpaAge(Student[] students) {
         for (int i = 0; i < students.length - 1; i++) {
             for (int j = 0; j < students.length - i - 1; j++) {
-                if (students[j].getGpa() < students[j + 1].getGpa()) {
+                if (students[j].getGpa() < students[j + 1].getGpa() ||
+                        (students[j].getGpa() == students[j + 1].getGpa() &&
+                                students[j].getAge() > students[j + 1].getAge())) {
+
                     Student temp = students[j];
                     students[j] = students[j + 1];
                     students[j + 1] = temp;
-                } else if (students[j].getGpa() == students[j + 1].getGpa()) {
-                    if (students[j].getAge() > students[j + 1].getAge()) {
-                        Student temp = students[j];
-                        students[j] = students[j + 1];
-                        students[j + 1] = temp;
-                    }
                 }
             }
         }
@@ -181,17 +174,15 @@ public class Main {
     public static Student[] sortByNameDepartment(Student[] students) {
         for (int i = 0; i < students.length - 1; i++) {
             for (int j = 0; j < students.length - i - 1; j++) {
-                if (students[j].getName().compareTo(students[j + 1].getName()) > 0) {
+                if (students[j].getName().compareTo(students[j + 1].getName()) > 0 ||
+                        (students[j].getName().compareTo(students[j + 1].getName()) == 0 &&
+                                students[j].getDepartment().compareTo(students[j + 1].getDepartment()) > 0)) {
+
                     Student temp = students[j];
                     students[j] = students[j + 1];
                     students[j + 1] = temp;
-                } else if (students[j].getName().compareTo(students[j + 1].getName()) == 0) {
-                    if (students[j].getDepartment().compareTo(students[j + 1].getDepartment()) > 0) {
-                        Student temp = students[j];
-                        students[j] = students[j + 1];
-                        students[j + 1] = temp;
-                    }
                 }
+
             }
         }
         return students;
