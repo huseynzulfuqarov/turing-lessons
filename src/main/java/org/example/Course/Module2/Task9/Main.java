@@ -4,6 +4,7 @@ import org.example.Course.Module2.Task9.model.Student;
 import org.example.Course.Module2.Task9.sorting.*;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
 
@@ -67,6 +68,39 @@ public class Main {
         Student[] studentsForAllFieldsSort = Arrays.copyOf(students, students.length);
         Arrays.sort(studentsForAllFieldsSort, new ByAllFields());
         printStudents(studentsForAllFieldsSort);
+
+        System.out.println("\nSorted by All Fields with Java 8 lambda version:");
+        Student[] studentsForAllFieldsLambdas = Arrays.copyOf(students, students.length);
+
+        Comparator<Student> studentComparatorLambda =
+                ((Comparator<Student>) (a1, a2) -> a1.getName().compareTo(a2.getName()))
+                        .thenComparing((a1, a2) -> Integer.compare(a1.getAge(), a2.getAge()))
+                        .thenComparing((a1, a2) -> Double.compare(a1.getGpa(), a2.getGpa()))
+                        .thenComparing((a1, a2) -> a1.getDepartment().compareTo(a2.getDepartment()))
+                        .thenComparing((a1, a2) -> a1.getEmail().compareTo(a2.getEmail()))
+                        .thenComparing((a1, a2) -> a1.getPhone().compareTo(a2.getPhone()))
+                        .thenComparing((a1, a2) -> a1.getAddress().compareTo(a2.getAddress()))
+                        .thenComparing((a1, a2) -> Integer.compare(a1.getStudyYear(), a2.getStudyYear()))
+                        .thenComparing((a1, a2) -> Boolean.compare(a1.isActive(), a2.isActive()));
+
+        Arrays.sort(studentsForAllFieldsLambdas, studentComparatorLambda);
+        printStudents(studentsForAllFieldsLambdas);
+
+        System.out.println("\nSorted by All Fields with Java 8 lambda version:");
+        Student[] studentsForAllFieldsComparatorChain = Arrays.copyOf(students, students.length);
+
+        Comparator<Student> studentComparatorChain =
+                Comparator.comparing(Student::getName)
+                        .thenComparingDouble(Student::getGpa)
+                        .thenComparing(Student::getDepartment)
+                        .thenComparing(Student::getEmail)
+                        .thenComparing(Student::getPhone)
+                        .thenComparing(Student::getAddress)
+                        .thenComparingInt(Student::getStudyYear)
+                        .thenComparing(Student::isActive);
+
+        Arrays.sort(studentsForAllFieldsComparatorChain, studentComparatorChain);
+        printStudents(studentsForAllFieldsComparatorChain);
     }
 
     public static void printStudents(Student[] students) {
