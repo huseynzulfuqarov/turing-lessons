@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -42,5 +43,18 @@ public class Main {
         consumerLambda.accept(studentSupplierLambda);
         System.out.println(functionLambda.apply(studentSupplierLambda));
         System.out.println("===========================");
+
+        System.out.println("============= With Method Reference Expression =================");
+
+        Predicate<Student> isActivePredicate = Student::isActive;
+        Function<Student, String> getNameFunction = Student::getName;
+
+        System.out.println(isActivePredicate.test(studentSupplierLambda));
+        System.out.println(getNameFunction.apply(studentSupplierLambda));
+
+        Stream.of(studentSupplierLambda)
+                .filter(Student::isActive)
+                .map(getNameFunction)
+                .forEach(System.out::println);
     }
 }
