@@ -86,6 +86,12 @@ public class Main {
         Arrays.sort(studentsForAllFieldsLambdas, studentComparatorLambda);
         printStudents(studentsForAllFieldsLambdas);
 
+        System.out.println("\nSorted by Name field with Java 8 lambda version:");
+        Student[] studentsSortByName = Arrays.copyOf(students, students.length);
+
+        Arrays.sort(studentsSortByName, (o1, o2) -> o1.getName().compareTo(o2.getName()));
+        printStudents(studentsSortByName);
+
         System.out.println("\nSorted by All Fields with Java 8 lambda version:");
         Student[] studentsForAllFieldsComparatorChain = Arrays.copyOf(students, students.length);
 
