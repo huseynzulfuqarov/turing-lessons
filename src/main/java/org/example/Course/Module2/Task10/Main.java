@@ -28,7 +28,7 @@ public class Main {
         System.out.println(studentFunction.apply(student));
         studentConsumer.accept(student);
         System.out.println(studentPredicate.test(student));
-        System.out.println("===================================");
+        System.out.println("===================================\n");
 
         System.out.println("============= With Lambda Expression =================");
         Supplier<Student> supplierLambda = () -> new Student("Emin", 23, "Lambda", true);
@@ -42,7 +42,7 @@ public class Main {
         System.out.println(predicateLambda.test(studentSupplierLambda));
         consumerLambda.accept(studentSupplierLambda);
         System.out.println(functionLambda.apply(studentSupplierLambda));
-        System.out.println("===========================");
+        System.out.println("===========================\n");
 
         System.out.println("============= With Method Reference Expression =================");
 
@@ -56,7 +56,7 @@ public class Main {
                 .filter(Student::isActive)
                 .map(getNameFunction)
                 .forEach(System.out::println);
-        System.out.println("============================");
+        System.out.println("============================\n");
 
         Predicate<Student> test2 = Main::isActive;
 
