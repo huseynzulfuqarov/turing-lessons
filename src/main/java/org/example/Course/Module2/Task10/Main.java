@@ -56,5 +56,16 @@ public class Main {
                 .filter(Student::isActive)
                 .map(getNameFunction)
                 .forEach(System.out::println);
+        System.out.println("============================");
+
+        Predicate<Student> test2 = Main::isActive;
+
+        Student studentTest = new Student("Aa", 20, "Reference", true);
+        boolean result = test2.test(studentTest);
+        System.out.println(result);
+    }
+
+    public static boolean isActive(Student student) {
+        return student.isActive();
     }
 }
