@@ -8,6 +8,6 @@ public class StudentSupplier implements Supplier<Student> {
 
     @Override
     public Student get() {
-        return new Student("Ali", 19, "adadds", true);
+        return new Student("Ali", 19, "Class", true);
     }
 }
